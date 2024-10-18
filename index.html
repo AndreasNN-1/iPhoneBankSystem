@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Responsive Iframe</title>
     <style>
         /* Reset margin and padding for body */
-        body, html {
+        body,
+        html {
             margin: 0;
             padding: 0;
             height: 100%;
@@ -19,44 +21,88 @@
 
         /* Iframe styles */
         iframe {
-            border: none; /* Remove default border */
-            transition: all 0.3s ease; /* Smooth transition for size changes */
+            border: none;
+            /* Remove default border */
+            transition: all 0.3s ease;
+            /* Smooth transition for size changes */
         }
 
         /* Centered Iframe for non-phone devices */
         .iframe-container {
-            position: relative; /* Position relative for absolute child */
-            height: 90vh; /* Set a height for the container */
-            width: calc(90vh * (9 / 18)); /* Width based on 19.5:9 aspect ratio */
+            position: relative;
+            /* Position relative for absolute child */
+            height: 90vh;
+            /* Set a height for the container */
+            width: calc(90vh * (9 / 18));
+            /* Width based on 19.5:9 aspect ratio */
         }
 
         .iframe-container iframe {
-            position: absolute; /* Absolutely positioned within the container */
+            position: absolute;
+            /* Absolutely positioned within the container */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
         }
 
+        .tilte {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, 0);
+            margin: 0;
+            padding: 0;
+            text-wrap: nowrap;
+            font-size: 5vh;
+        }
+
+        .text {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0;
+            padding: 0;
+            text-wrap: nowrap;
+            font-size: 3vh;
+        }
+
         /* Media query for mobile devices */
         @media (max-width: 768px) {
             .iframe-container {
-                display: none; /* Hide the container for phones */
+                display: none;
+                /* Hide the container for phones */
+            }
+
+            .tilte {
+                display: none;
+            }
+
+            .text {
+                display: none;
             }
 
             iframe {
-                width: 100vw; /* Full width for phones */
-                height: 100vh; /* Full height for phones */
+                width: 100vw;
+                /* Full width for phones */
+                height: 100vh;
+                /* Full height for phones */
             }
         }
     </style>
 </head>
+
 <body>
-  <h1 style="position: absolute; top: 0; left: 50%; transform: translate(-50%, 0); margin: 0; padding: 0; text-wrap: nowrap;">Back Phone App</h1>
+    <h1 class="tilte"
+        style="position: absolute; top: 0; left: 50%; transform: translate(-50%, 0); margin: 0; padding: 0; text-wrap: nowrap;">
+        Back Phone App</h1>
     <div class="iframe-container">
         <iframe src="app/index.html"></iframe>
     </div>
-    <p style="position: absolute; bottom: 0; left: 50%; transform: translate(-50%, -50%); margin: 0; padding: 0; text-wrap: nowrap;">by AndreasNN1</p>
+    <p class="text"
+        style="position: absolute; bottom: 0; left: 50%; transform: translate(-50%, -50%); margin: 0; padding: 0; text-wrap: nowrap;">
+        by AndreasNN1</p>
     <script>
         function adjustIframe() {
             // Check if the user is on a mobile device
@@ -81,4 +127,5 @@
         window.onload = adjustIframe;
     </script>
 </body>
+
 </html>
